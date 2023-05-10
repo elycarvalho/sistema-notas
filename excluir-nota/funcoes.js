@@ -1,12 +1,32 @@
 // Função para excluir nota
-listaNotas.innerHTML = 'teste'
+let listaNotas = document.querySelector('.lista-notas')
+notas = []
+
 listarNotas()
+
+
 function listarNotas(){
+	notas = JSON.parse(localStorage.notas)
+	listaNotas.innerHTML = ''
 	for (let i = 0; i < notas.length; i++) {
 		listaNotas.innerHTML += `
-		  <h5>${notas[i][0]}</h5>
+		<li id="${i}" class="list-group-item">
+		  <h5 class="font-weight-bold">
+		    <button onclick="deletarNota(this)" class="btn bg-danger text-white">DEL</button>
+		    ${notas[i][0]}
+		  </h5>
 		  <p>${notas[i][1]}</p>
-		  <button class="botaoDeletar">Del</button>
+		</li>
+
 		`
 	}
+}
+
+function deletarNota(e){
+	if (confirm('Tem certeza que deseja excluir esta nota?') === true){
+		notas = JSON.parse(localStorage.notas)
+		notas.splice(e.parentElement.parentElement.id, 1)
+		localStorage.setItem("notas", JSON.stringify(notas))
+		listarNotas()
+    }
 }

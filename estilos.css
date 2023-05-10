@@ -1,5 +1,4 @@
 body {
-	padding: 20px;
 	min-height: 100vh;
   min-height: -webkit-fill-available;
 }
@@ -13,8 +12,9 @@ form {
 }
 
 .lista-notas {
-	max-height: 300px;
+	max-height: 420px;
 	overflow-y: auto;
+	border: 1px solid lightgray;
 }
 
 html {
@@ -26,7 +26,7 @@ html {
 	height: -webkit-fill-available;
 	max-height: 100vh;
 	overflow-x: auto;
-	overflow-y: hidden;
+	/*overflow-y: hidden;*/
   }
   
   .dropdown-toggle { outline: 0; }
@@ -84,9 +84,6 @@ html {
 	user-select: none;
   }
 
-  .container{
-  	border-left: 1px solid blue;
-  }
 
   @media (min-width: 768px) {
 	.bd-placeholder-img-lg {
