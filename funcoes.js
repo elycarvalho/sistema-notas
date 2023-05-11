@@ -33,6 +33,8 @@ function adicionarNota(){
         notas.push(nota)
         localStorage.setItem("notas", JSON.stringify(notas))
         nota = []
+	titulo.value = ''
+	texto.value = ''
         console.log(notas)
         mostraNotas()
     }
