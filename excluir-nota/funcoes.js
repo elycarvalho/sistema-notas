@@ -16,6 +16,7 @@ function listarNotas(){
 		    ${notas[i][0]}
 		  </h5>
 		  <p>${notas[i][1]}</p>
+		  <p>${notas[i][2]}</p>
 		</li>
 
 		`

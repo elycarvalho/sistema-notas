@@ -16,17 +16,24 @@ function mostraNotas(){
         <li id="${i}" class="list-group-item">
             <h5 class="font-weight-bold">${notas[i][0]}</h5>
             <p>${notas[i][1]}</p>
+            <p>${notas[i][2]}</p>
         </li>
         `
 	}
 }
 
 function adicionarNota(){
-    	nota.push(titulo.value, texto.value)
-    	notas.push(nota)
-    	localStorage.setItem("notas", JSON.stringify(notas))
-    	nota = []
-    	console.log(notas[0])
-    	mostraNotas()
-
+    if(titulo.value == ''){
+        alert('titulo não pode ficar em branco')
+    }else{
+        let data = new Date()
+        dataFormatada = data.getDate() + '/' + data.getMonth() + '/' + data.getFullYear()
+        console.log(dataFormatada)
+        nota.push(titulo.value, texto.value, dataFormatada)
+        notas.push(nota)
+        localStorage.setItem("notas", JSON.stringify(notas))
+        nota = []
+        console.log(notas)
+        mostraNotas()
+    }
 }
