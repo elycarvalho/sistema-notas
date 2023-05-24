@@ -1,0 +1,19 @@
+SISTEMA DE NOTAS
+
+* A barra de navegação superior foi feita copiando o código de um modelo de barra no site do bootstrap.
+
+* Armazenamento: As são gravadas no armazenamento local do navegador
+usando LocalStorage.
+
+* Listar: para listar as notas gravadas, usei um loop do tipo
+FOR e ao mostrar cada item na tela é atribuido um ID
+pra cada de forma que esse ID coincide com a posição
+do item no array.
+Os item são copiados do localStorage para uma variavel
+chamada notas.
+
+* Exlcuir: Na tela de exclusão os items são listados
+usando o mesmo loop que mostra os items, carregando os items para a variavel nota e atribuindo um
+ID a cada um. Ao clicar no botão de deletar o ID atribuito é usado para excluir o item com a posição correspondente ao ID no array da variavel nota, depois
+o conteúdo da variavel nota é gravado novamente no
+localStorage.
