@@ -1,9 +1,12 @@
-/****************************************************
-  CÓDIGO PARA EDIÇÃO DE NOTAS A SER DESENVOLVIDO...
-*****************************************************/
+/*********************************
+  CÓDIGO PARA EDIÇÃO DE NOTAS
+**********************************/
 
 // Função para editar notas
 let listaNotas = document.querySelector('.lista-notas')
+let titulo = document.querySelector('#titulo')
+let texto = document.querySelector('#texto')
+let indexID = ''
 notas = []
 
 listarNotas()
@@ -27,8 +30,22 @@ function listarNotas(){
 }
 
 function editarNota(e){
-	alert('ESTÁ FUNÇÃO AINDA NÃO ESTÁ PRONTA!')
-	/*************************
-	FUNCAO PARA EDITAR NOTAS
-	*************************/
+    titulo.value = notas[e.parentElement.parentElement.id][0]
+	console.log(e.parentElement.parentElement.id)
+	texto.value = notas[e.parentElement.parentElement.id][1]
+	indexID = e.parentElement.parentElement.id
+}
+
+function gravaEditado(){
+	if(titulo.value === ''){
+		alert('Escolha uma nota para editar e clique no botão EDIT')
+	}else{
+		console.log(indexID)
+		notas[indexID][0] = titulo.value
+		notas[indexID][1] = texto.value
+		localStorage.setItem('notas', JSON.stringify(notas))
+		titulo.value = ''
+		texto.value = ''
+		listarNotas()
+	}
 }
