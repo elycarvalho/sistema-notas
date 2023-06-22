@@ -7,9 +7,16 @@ let texto = document.querySelector("#texto")
 mostraNotas()
 
 //busca notas gravadas no armazenamento local 
-function mostraNotas(){
+function mostraNotas(ordem){
 	notas = JSON.parse(localStorage.notas)
 	listaNotas.innerHTML = ''
+    if(ordem === 'alfa'){
+        notas.sort()
+    }
+    if(ordem === 'reverso'){
+        notas.sort()
+        notas.reverse()
+    }
 
 	for(let i = 0; i < notas.length; i++){
         listaNotas.innerHTML += `
@@ -21,6 +28,7 @@ function mostraNotas(){
         `
 	}
 }
+
 
 function adicionarNota(){
     if(titulo.value == ''){
